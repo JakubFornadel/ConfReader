@@ -21,7 +21,7 @@ public:
   void LoadFile(const std::string& file_path);
 
   // Checks existence of parameter, returns true if it does
-  bool Find(const std::string& param_path, const char delimiter = '.') const;
+  bool Has(const std::string& param_path, const char delimiter = '.') const;
 
   // Returns value of specified parameter by its path - Section1.param,
   // where Sections represent nested groups of parameters

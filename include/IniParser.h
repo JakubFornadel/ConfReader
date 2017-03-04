@@ -20,7 +20,7 @@ public:
   virtual IniParser * Clone() const override;
   virtual void LoadAndParse(std::string file_path) override;
   virtual std::string GetParam(std::vector<std::string>& param_tokens) const override;
-  virtual bool Find(std::vector<std::string>& param_tokens) const override;
+  virtual bool Has(std::vector<std::string>& param_tokens) const override;
   virtual Parser::ParsStorage GetAllParams() const override;
 private:
   // Data type of storage for parsed parameters from *.ini files

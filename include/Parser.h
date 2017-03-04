@@ -29,7 +29,7 @@ public:
     virtual std::string GetParam(std::vector<std::string>& param_tokens) const = 0;
 
     // Checks existence of parameter, returns true if it does
-    virtual bool Find(std::vector<std::string>& param_tokens) const = 0;
+    virtual bool Has(std::vector<std::string>& param_tokens) const = 0;
 
     // Returns all stored parameters as ParsStorage type,
     // keeps order as: section1, section1_par1, section1_par2, section2, section2_par1, ...

@@ -55,7 +55,8 @@ void IniParser::ParseLines(std::ifstream & ifs) {
   std::smatch section_match;
 
   // Parse all lines using regex's and store found parameters
-  std::string act_section = default_section_;
+  // set actual section to default in case ini file contains parameters without specified section
+  std::string actual_section = default_section_;
   std::string param_name, param_value;
   std::string line;
   while(std::getline(ifs, line)) {
@@ -65,13 +66,13 @@ void IniParser::ParseLines(std::ifstream & ifs) {
       if (param_match.size() == 3) {
         param_name = param_match[1];
         param_value = param_match[2];
-        params_[act_section][param_name] = param_value;
+        params_[actual_section][param_name] = param_value;
       }
     }
     // Section
     else if (std::regex_match(line, section_match, section_regex)) {
       if (section_match.size() == 2) {
-        act_section = section_match[1];
+        actual_section = section_match[1];
       }
     }
     // Comment + empty lines - ignore
@@ -109,14 +110,14 @@ std::string IniParser::GetParam(std::vector<std::string>& param_tokens) const {
   param = std::get<1 /* param */>(valid_tokens);
 
   // Check if such parameter exist
-  if (Find(param_tokens) == false) {
+  if (Has(param_tokens) == false) {
     throw std::out_of_range("Invalid parameter: " + section + "." + param);
   }
 
   return params_.at(section).at(param);
 }
 
-bool IniParser::Find(std::vector<std::string>& param_tokens) const {
+bool IniParser::Has(std::vector<std::string>& param_tokens) const {
   std::string section, param;
 
   // Validate tokens and get values of section and param

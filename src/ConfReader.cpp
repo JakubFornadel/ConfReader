@@ -29,10 +29,10 @@ void ConfReader::LoadFile(const std::string & file_path) {
   parser_->LoadAndParse(file_path);
 }
 
-bool ConfReader::Find(const std::string& param_path, const char delimiter) const {
+bool ConfReader::Has(const std::string& param_path, const char delimiter) const {
   auto param_tokens = SplitParamTokens(param_path, delimiter);
 
-  return parser_->Find(param_tokens);
+  return parser_->Has(param_tokens);
 }
 
 Parser::ParsStorage ConfReader::GetAllParams() {

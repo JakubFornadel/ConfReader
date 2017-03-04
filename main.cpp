@@ -13,14 +13,15 @@ int main() {
     // Gets parameter as string, throws an exception if it does not exist
     std::cout << config.GetParam("personal_info.name") << std::endl;
     // Gets parameter with specified return type, throws an exception if conversion is not possible
-    std::cout << config.GetParam<int>("personal_info.age") << std::endl << std::endl;
+    std::cout << config.GetParam<int>("personal_info.age") << std::endl;
 
 
-    // Loads second configuration file, override existing parameters
+    // Loads second configuration file, overrides existing parameters
     config.LoadFile("./tests/files/test_file2.ini");
     // Checks if parameter exist before accessing it - "exception safe"
-    if (config.Find("personal_info.age") == true) {
-      auto param = config.GetParam<int>("personal_info.age");
+    if (config.Has("personal_info.age") == true) {
+      auto age = config.GetParam<int>("personal_info.age");
+      std::cout << age << std::endl << std::endl;
       // Do something with parameter...
     }
 
@@ -32,7 +33,7 @@ int main() {
     }
 
 
-    // Deletes previously stored data and load new file
+    // Deletes previously stored data and loads new file
     config.Reset();
     config.LoadFile("./tests/files/test_file3.ini");
 
