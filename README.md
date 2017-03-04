@@ -61,7 +61,7 @@ int main() {
 
     // Loads second configuration file, overrides existing parameters
     config.LoadFile("./tests/files/test_file2.ini");
-    // Checks if parameter exist before accessing it - "exception safe"
+    // Checks if parameter exist before accessing it
     if (config.Has("personal_info.age") == true) {
       auto age = config.GetParam<int>("personal_info.age");
       std::cout << age << std::endl << std::endl;
