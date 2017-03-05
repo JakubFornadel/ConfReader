@@ -2,6 +2,7 @@
 #define PARSER_H
 
 #include <string>
+#include <memory>
 #include <vector>
 
 // Abstract Parser interface
@@ -23,7 +24,7 @@ public:
     virtual void ResetData() = 0;
 
     // Loads file, parses it and stores found parameters
-    virtual void LoadAndParse(std::string file_path) = 0;
+    virtual void LoadAndParse(const std::string& file_path) = 0;
 
     // Returns value of specified parameter by tokens, e.g. ("Section1", "Section2", "param_name")
     virtual std::string GetParam(std::vector<std::string>& param_tokens) const = 0;

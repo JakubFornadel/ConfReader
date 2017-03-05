@@ -16,7 +16,7 @@ void IniParser::ResetData() {
   params_.clear();
 }
 
-void IniParser::LoadAndParse(std::string file_path) {
+void IniParser::LoadAndParse(const std::string& file_path) {
   std::ifstream ifs(file_path);
 
   if (!ifs.is_open()) {

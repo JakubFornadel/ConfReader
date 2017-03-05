@@ -8,7 +8,6 @@
 
 class ConfReader {
 public:
-  ConfReader(Parser * parser);
   ConfReader(std::unique_ptr<Parser> parser);
   ConfReader(const ConfReader& other);
   ConfReader& operator=(const ConfReader& other);

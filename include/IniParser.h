@@ -18,7 +18,7 @@ public:
 
   virtual void ResetData();
   virtual IniParser * Clone() const override;
-  virtual void LoadAndParse(std::string file_path) override;
+  virtual void LoadAndParse(const std::string& file_path) override;
   virtual std::string GetParam(std::vector<std::string>& param_tokens) const override;
   virtual bool Has(std::vector<std::string>& param_tokens) const override;
   virtual Parser::ParsStorage GetAllParams() const override;

@@ -3,9 +3,6 @@
 #include <iostream>
 #include <sstream>
 
-ConfReader::ConfReader(Parser * parser) : parser_(parser) {
-}
-
 ConfReader::ConfReader(std::unique_ptr<Parser> parser) {
   parser_ = std::move(parser);
 }
