@@ -1,9 +1,9 @@
 # ConfReader
 
-###Overview###
+### Overview ###
 ConfReader is C++ class, which allows programmers to easily access configuration files in different formats. For proper working of the class must be specified FileParser, which implements functions for storing data, parsing, etc... ConfReader provides interface for adding/switching between parsers without needing to do changes to the class. In examples below is used Parser for files in .ini format.
 
-###Supported *.ini file format###
+### Supported *.ini file format ###
 ```INI
 ; This is sample configuration file
 ; Comment start with ';', comments are not allowed on the same line as parameters or sections
@@ -37,7 +37,7 @@ programming_language=C++
 position=Developer
 ```
 
-###Usage###
+### Usage ###
 Main interface is defined in ConfReader.h. This is simple example of usage: 
 
 ```C++
