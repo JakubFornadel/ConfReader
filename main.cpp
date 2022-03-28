@@ -3,6 +3,8 @@
 #include "ConfReader.h"
 #include "IniParser.h"
 
+
+// Branch A comment
 int main() {
   try {
     // Creates ConfReader class instance with IniParser as parameter
